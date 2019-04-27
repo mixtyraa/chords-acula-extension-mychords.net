@@ -205,11 +205,43 @@ const chords = [
     },
 ];
 
+function replaceAculaChord() {
+    $('.b-accord__symbol a').each((key, el) => {
+        const mychords_name = el.text;
+        const mychords_name_toltip = $(el).attr('data-title');
+        const chord = chords.find(el => el.mychords_name === mychords_name || el.name === mychords_name);
+        if (chord) {
+            chord.mychords_name_toltip = mychords_name_toltip;
+            const tooltip = `<img src='${chord.src}' style='min-width:45px;min-height:80px;'></img>`;
+            $(el).attr('data-title', tooltip);
+        }
+    });
+}
 
-$('.b-accord__symbol a').each((key, el) => {
-    const mychords_name = el.text;
-    const chord = chords.find(el => el.mychords_name === mychords_name || el.name === mychords_name);
-    const tooltip = `<img src='${chord.src}' style='min-width:45px;min-height:80px;'></img>`;
-    $(el).attr('data-title', tooltip);
+function replaceDefaultChord() {
+    $('.b-accord__symbol a').each((key, el) => {
+        const mychords_name = el.text;
+        const chord = chords.find(el => el.mychords_name === mychords_name || el.name === mychords_name);
+        if (chord) {
+            $(el).attr('data-title', chord.mychords_name_toltip);
+        }
+    });
+}
+
+$('.b-words__text').on('DOMSubtreeModified', function() {
+    switcherChord();
 });
 
+
+
+function switcherChord() {
+    if ($('#chords-acula-switcher').attr('data-chords-acula-switcher') === 'true') {
+        replaceAculaChord();
+    } else {
+        replaceDefaultChord();
+    }
+}
+
+$('#chords-acula-switcher').click(() => switcherChord());
+
+switcherChord();

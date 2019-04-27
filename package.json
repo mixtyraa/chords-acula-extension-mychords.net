@@ -1,0 +1,19 @@
+{
+  "name": "chords-acula",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "gulp build",
+    "dev": "gulp dev"
+  },
+  "author": "mixtyraa <mixtyraa@mail.ru>",
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "eslint": "^5.16.0",
+    "gulp": "^4.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-babel-minify": "^0.5.0",
+    "gulp-flatten": "^0.4.0",
+    "gulp-remove-logging": "^1.2.0"
+  }
+}
