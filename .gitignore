@@ -1,0 +1,4 @@
+node_modules/
+chords-acula-extension/
+!chords-acula-extension/manifest.json
+*.zip
