@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Chords Acula for mychords.net",
+  "description": "Chords Acula for mychords.net",
+  "version": "1.0.0",
+  "permissions": [
+    "activeTab",
+    "https://mychords.net/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://mychords.net/*"],
+      "js": ["background.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    "/chords-acula-main.js"
+  ]
+}
